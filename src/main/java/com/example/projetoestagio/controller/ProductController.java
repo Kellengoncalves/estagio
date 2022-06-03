@@ -8,7 +8,6 @@ import com.example.projetoestagio.service.ProductService;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +45,7 @@ public class ProductController {
     })
     public ResponseEntity<ProductDTO> create(@RequestBody @Valid ProductDTO productDTO) {
         return new ResponseEntity<>(
-                toDTO(productService.save(productDTO.fromDTO())),
+                toDTO(productService.save(productDTO.toProduct())),
                 HttpStatus.CREATED
         );
     }

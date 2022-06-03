@@ -38,7 +38,7 @@ public class ProductDTO {
         return product.stream().map(ProductDTO::toDTO).collect(Collectors.toList());
     }
 
-    public Product fromDTO() {
+    public Product toProduct() {
         return new Product(
                 this.getId(),
                 this.getDescription(),

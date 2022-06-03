@@ -87,7 +87,7 @@ class ProductControllerTest {
 
         String content = objectMapper.writeValueAsString(product);
 
-        Mockito.when(productService.save(Mockito.any())).thenReturn((this.mockProduct(1)));
+        Mockito.when(productService.save(Mockito.any())).thenReturn((product));
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post(uri)
